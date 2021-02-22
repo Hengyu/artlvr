@@ -40,10 +40,11 @@ public struct ChessBotReleaseManager {
         )
 
         /// In App Store. The latest version of ChessBot 2.x, for macOS 10.15+.
+        /// Make the `URL` point to the `.v3_5` as a temp fix for the design flaws between native and backend.
         public static let v2_4: Release = .init(
             version: .init(2, 4, 0),
             platform: .init(platform: .macOS, version: .init(stringLiteral: "10.15")),
-            url: URL(string: "https://apps.apple.com/us/app/id1481168175")!,
+            url: URL(string: "https://apps.apple.com/us/app/id1065334169")!,
             latestProduction: latestProduction
         )
 
