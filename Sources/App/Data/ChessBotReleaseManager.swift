@@ -14,16 +14,24 @@ public struct ChessBotReleaseManager {
 
     public enum Catalyst {
         public static var latestBeta: TypedRelease = TypedRelease.beta(
-            version: .init(3, 6, 0),
+            version: .init(3, 7, 0),
             platform: .init(platform: .macOS, version: .init(stringLiteral: "11.0"))
         )
 
         public static var latestProduction: TypedRelease = TypedRelease.production(
-            version: .init(3, 5, 0),
-            platform: .init(platform: .macOS, version: .init(stringLiteral: "10.15"))
+            version: .init(3, 6, 0),
+            platform: .init(platform: .macOS, version: .init(stringLiteral: "11.0"))
         )
 
         /// Alpha
+        public static let v3_7: Release = .init(
+            version: .init(3, 7, 0),
+            platform: .init(platform: .macOS, version: .init(stringLiteral: "11.0")),
+            url: URL(string: "https://apps.apple.com/us/app/id1065334169")!,
+            latestProduction: latestProduction
+        )
+
+        /// In App Store. The latest version of ChessBot 3.x, for macOS 11.0+.
         public static let v3_6: Release = .init(
             version: .init(3, 6, 0),
             platform: .init(platform: .macOS, version: .init(stringLiteral: "11.0")),
@@ -31,7 +39,6 @@ public struct ChessBotReleaseManager {
             latestProduction: latestProduction
         )
 
-        /// In App Store. The latest version of ChessBot 3.x, for macOS 11.0+.
         public static let v3_5: Release = .init(
             version: .init(3, 5, 0),
             platform: .init(platform: .macOS, version: .init(stringLiteral: "11.0")),
@@ -57,6 +64,7 @@ public struct ChessBotReleaseManager {
 
         public static func getRelease(_ version: Version) -> Release? {
             switch version.description {
+            case "3.7.0": return Catalyst.v3_7
             case "3.6.0": return Catalyst.v3_6
             case "3.5.0": return Catalyst.v3_5
             case "2.4.0": return Catalyst.v2_4
